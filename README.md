@@ -3,19 +3,19 @@ An example of osgi modules that depend on different version of a model library. 
 
 # building
 
-  mvn clean install
+    mvn clean install
 
 # running
 
 Start karaf
 
-  bin/start
-  bin/client
-  repo-add mvn:osgitest/parent/1.0.0/xml/features; feature:install osgitest
+    bin/start
+    bin/client
+    repo-add mvn:osgitest/parent/1.0.0/xml/features; feature:install osgitest
 
 Now you can test the commands using the service:
 
-  test:client1 John
-  test:client2 Doe
+    test:client1 John
+    test:client2 Doe
   
 This example also demonstrates property injection and dynamic service reloading, one can change the etc/osgitest.service.cfg and see how test:client2 output changes.
