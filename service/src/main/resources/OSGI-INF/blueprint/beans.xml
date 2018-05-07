@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<blueprint xmlns="http://www.osgi.org/xmlns/blueprint/v1.0.0"
+    xmlns:cm="http://aries.apache.org/blueprint/xmlns/blueprint-cm/v1.1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://aries.apache.org/blueprint/xmlns/blueprint-cm/v1.1.0 http://aries.apache.org/schemas/blueprint-cm/blueprint-cm-1.1.0.xsd">
+
+    <cm:property-placeholder persistent-id="osgitest.service" update-strategy="reload">
+        <cm:default-properties>
+            <cm:property name="service.lastname.prefix" value="Surname" />
+        </cm:default-properties>
+    </cm:property-placeholder>
+
+    <bean id="serviceImpl" class="osgitest.service.impl.RandomService" init-method="init" destroy-method="destroy">
+        <property name="surnamePrefix" value="${service.lastname.prefix}" />
+    </bean>
+    <service id="theservice" ref="serviceImpl" auto-export="interfaces">
+    </service>
+
+</blueprint>

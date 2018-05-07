@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<features name="osgitest-service" xmlns="http://karaf.apache.org/xmlns/features/v1.4.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          xsi:schemaLocation="http://karaf.apache.org/xmlns/features/v1.4.0 http://karaf.apache.org/xmlns/features/v1.4.0">
+
+    <feature name="service">
+        <feature prerequisite="true">wrap</feature>
+        <feature prerequisite="true">aries-blueprint</feature>
+
+        <bundle>mvn:osgitest/model/1.1.0</bundle>
+        <bundle>mvn:osgitest/service-api/1.0.0</bundle>
+        <bundle>mvn:osgitest/service/1.1.0</bundle>
+        <config name="osgitest.service">
+            service.lastname.prefix = DefaultPrefix
+        </config>
+    </feature>
+
+</features>
